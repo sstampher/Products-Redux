@@ -4,7 +4,6 @@ const port = process.env.PORT || 3000;
 const path = require('path');
 const { Product } = require('./db');
 
-//app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.listen(port, ()=> console.log(`listening on port ${port}`));
 
@@ -32,8 +31,6 @@ app.delete('/api/products/:id', async (req, res, next) => {
 
 app.post('/api/products/', async (req, res, next) =>{
     try{
-        console.log('>>>>>>>>>>>>>>>>>>', req);
-
         const newProduct = await Product.create(
             {name: req.body.name} );
 
